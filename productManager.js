@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-class ProductManager{
+export default class ProductManager{
 
   constructor() {
     this.products = [];
@@ -95,7 +95,7 @@ class ProductManager{
     if(fs.existsSync('productos.json')){
       const productos = JSON.parse(fs.readFileSync('productos.json','utf-8'));
       this.products = productos;
-      console.log(this.products)
+      return this.products
     } else{
       this.#getProductos();
       console.log(this.products)
@@ -109,11 +109,12 @@ const pManager = new ProductManager();
 
 
 //pManager.getProducts()
-pManager.addProduct("producto prueba","Este es un producto prueba",200,"Sin imagen","abc123",25)
+//pManager.addProduct("producto prueba","Este es un producto prueba",200,"Sin imagen","abc123",25)
 //pManager.getProducts()
 //pManager.getProductById(1)
 //pManager.getProductById(2)
-pManager.updateProduct(1,"title","producto prueba 2")
+/* pManager.updateProduct(1,"title","producto prueba 2")
 pManager.addProduct('producto 2','otro',10,'xd','xd2',10)
 pManager.deleteProduct(1)
-pManager.getProducts()
+pManager.getProducts() */
+
