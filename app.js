@@ -35,5 +35,10 @@ app.get("/products",(req,res) =>{
 app.get('/products/:pid',(req,res) =>{
   const { pid } = req.params;
   const productoMostrar = productos.find((prod) => prod.id == pid)
-  res.json(productoMostrar)
+  if(productoMostrar){
+    res.json(productoMostrar)
+  } else {
+    res.send("<h1>Error, producto no encontrado por su ID</h1>")
+  }
 })
+
